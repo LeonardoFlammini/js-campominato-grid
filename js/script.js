@@ -1,10 +1,10 @@
+/*********** CONST ***************/
 const container = document.querySelector(".container");
 const numCells = document.getElementById("grid-dim");
 const btnStart = document.querySelector("button");
-
-
-//let message;
+/*********** LET ***************/
 let className;
+
 
 reset();
 
@@ -19,6 +19,8 @@ btnStart.addEventListener('click', function(){
 
 
 
+
+/*********** FUNCTIONS ***************/
 function reset(){
   container.innerHTML = "";
 }
@@ -26,8 +28,6 @@ function reset(){
 
 function selectValue(numCellsF){
   let classNameF;
-  
-  
 
   switch (numCellsF){
     case "100":
@@ -55,9 +55,20 @@ function letsPlay(flag) {
   const max = parseInt(numCells.value);
   if(flag != null){
     for (let i = 0; i< max; i++ ){
+
       const square = document.createElement("div");
+
       square.classList.add("square", className);
+      square.addEventListener('click', handleBtnClick);
       container.append(square);
+      square._ID = i;
+      // console.log(square);
+      // square.innerHTML = square._ID;
     }
   }
+}
+
+function handleBtnClick(){
+  this.classList.toggle("clicked");
+  this.innerHTML = this._ID;
 }
