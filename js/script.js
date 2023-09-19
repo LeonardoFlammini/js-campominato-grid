@@ -70,5 +70,6 @@ function letsPlay(flag) {
 
 function handleBtnClick(){
   this.classList.toggle("clicked");
-  this.innerHTML = this._ID;
+  this.innerHTML = this._ID; 
+  //TODO: toggle del numero
 }
